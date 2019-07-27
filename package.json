@@ -1,0 +1,20 @@
+{
+  "name": "rtmp-stream-client",
+  "version": "0.0.1",
+  "description": "A Balena Cloud Microservice Setup to receive a rtmp stream and display it in fullscreen on the raspberry hdmi port",
+  "main": " ",
+  "scripts": {
+    "test": " "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BNware/rtmp-stream-client.git"
+  },
+  "keywords": [],
+  "author": "BNware <info@bnware.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BNware/rtmp-stream-client/issues"
+  },
+  "homepage": "https://github.com/BNware/rtmp-stream-client#readme"
+}
