@@ -20,6 +20,7 @@
   "devDependencies": {
     "@types/node": "^12.6.8",
     "nps": "^5.9.5",
+    "nps-utils": "^1.7.0",
     "push-to-git": "^1.1.3"
   }
 }
