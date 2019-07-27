@@ -25,8 +25,6 @@ RUN ./configure --with-http_ssl_module --without-http_gzip_module --add-module=.
 
 RUN make install
 
-EXPOSE 80
-
 # Stage 2 -  Deploy
 FROM ubuntu:18.04
 
