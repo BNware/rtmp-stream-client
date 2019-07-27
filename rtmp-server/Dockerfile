@@ -1,7 +1,9 @@
 # This Dockerfile uses Docker Multi-Stage Build
+#
+# VERSION 0.1.0
 
 # Stage 1 - Build
-FROM ubuntu:18.04
+FROM ubuntu:18.04 AS builder
 WORKDIR /build/nginx
 RUN apt-get update && apt-get install -y build-essential libpcre3 libpcre3-dev libssl-dev
 RUN apt-get install -y wget unzip tar
@@ -25,11 +27,15 @@ RUN make install
 
 EXPOSE 80
 
-# this is for busybox, but will end immediately when stopped by docker stop
-#CMD exec /bin/sh -c "trap : TERM INT; (while true; do sleep 1000; done) & wait"
-CMD /usr/local/nginx/sbin/nginx && /bin/bash
-
 # Stage 2 -  Deploy
-#FROM arm32v7/ubuntu:18.04
-#
-#EXPOSE 1935
+FROM ubuntu:18.04
+
+WORKDIR /usr/local/nginx/
+
+COPY --from=builder /usr/local/nginx/ .
+RUN apt-get update && apt-get install -y libssl-dev
+
+EXPOSE 80
+EXPOSE 1935
+
+CMD /usr/local/nginx/sbin/nginx && /bin/bash
