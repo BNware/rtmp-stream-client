@@ -16,9 +16,18 @@ RUN wget http://nginx.org/download/nginx-${nginx_version}.tar.gz && tar -zxvf ng
 
 WORKDIR ./nginx-${nginx_version}
 
+# build nginx with rtmp module
+# Note: this nginx will be compiled without zlib, so no compression can be used.
+# Since it does only work as rtmp server, it should not make any difference.
+RUN ./configure --with-http_ssl_module --without-http_gzip_module --add-module=../nginx-rtmp-module-dev && make
+
+RUN make install
+
+EXPOSE 80
+
 # this is for busybox, but will end immediately when stopped by docker stop
 #CMD exec /bin/sh -c "trap : TERM INT; (while true; do sleep 1000; done) & wait"
-CMD /bin/bash
+CMD /usr/local/nginx/sbin/nginx && /bin/bash
 
 # Stage 2 -  Deploy
 #FROM arm32v7/ubuntu:18.04

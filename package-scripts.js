@@ -5,7 +5,7 @@ module.exports = {
         default: 'echo "Does nothing!"',
         rtmp: {
             build: 'docker build -t rtmp-server ./rtmp-server/',
-            run: 'docker run -it --rm --name rtmp rtmp-server'
+            run: 'docker run -it --rm --name rtmp -p 80:80 rtmp-server'
         }
     },
 };
