@@ -1,3 +1,7 @@
+.idea
+rtmp-stream-client.iml
+
+
 # Logs
 logs
 *.log
