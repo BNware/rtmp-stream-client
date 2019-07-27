@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/BNware/rtmp-stream-client/issues"
   },
-  "homepage": "https://github.com/BNware/rtmp-stream-client#readme"
+  "homepage": "https://github.com/BNware/rtmp-stream-client#readme",
+  "devDependencies": {
+    "@types/node": "^12.6.8",
+    "nps": "^5.9.5",
+    "push-to-git": "^1.1.3"
+  }
 }
