@@ -1,0 +1,13 @@
+version: '2'
+services:
+  rtmp-server:
+    build: ./rtmp-server
+    expose:
+      - "80"
+      - "1935"
+#  vlc-client:
+#    build: ./vlc-client
+#    depends_on:
+#      - rtmp-server
+#    ports:
+#      - "80:80"
